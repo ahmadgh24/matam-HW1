@@ -31,11 +31,7 @@ struct Transaction {
  *
  * @param transaction Transaction to print
 */
-void TransactionDumpInfo(const Transaction& transaction, ofstream& file) {
-    file << "Sender Name: " << transaction.sender << std::endl;
-    file << "Receiver Name: " << transaction.receiver << std::endl;
-    file << "Transaction Value: " << transaction.value << std::endl;
-}
+void TransactionDumpInfo(const Transaction& transaction, ofstream& file);
 
 
 /**
@@ -45,9 +41,7 @@ void TransactionDumpInfo(const Transaction& transaction, ofstream& file) {
  *
  * @return The hashed message
 */
-string TransactionHashMessage(const Transaction& transaction) {
-    return hash(transaction.value, transaction.sender, transaction.receiver);
-}
+string TransactionHashedMessage(const Transaction& transaction);
 
 
 /**
@@ -62,6 +56,5 @@ string TransactionHashMessage(const Transaction& transaction) {
 bool TransactionVerifyHashedMessage(
         const Transaction& transaction,
         string hashedMessage
-) {
-    return hashedMessage == TransactionHashMessage(transaction);
-}
+);
+

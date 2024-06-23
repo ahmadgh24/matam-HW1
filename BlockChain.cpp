@@ -1,5 +1,7 @@
 #include "BlockChain.h"
-#include "Utilities.h"
+#include "Transaction.h"
+#include <iostream>
+using namespace std;
 
 int BlockChainGetSize(const BlockChain& blockChain) {
     int ctr = 0;
@@ -56,19 +58,17 @@ void BlockChainAppendTransaction(
 }
 
 
-BlockChain BlockChainLoad(ifstream& file) {
-    BlockChain* head = nullptr;
+BlockChain BlockChainLoad(ifstream& file) {  
+    BlockChain *head;
     BlockChain* temp = nullptr;
-    
 
-    string line, sender, receiver, valueStr, timestamp;
+    std::string line, sender, receiver, valueStr, timestamp;
     sender = receiver = valueStr = timestamp = "";
     int value;
-
     while(getline(file, line)) {
         
-        Transaction* transaction = new Transaction;
-        BlockChain* current = new BlockChain();
+        Transaction transaction;
+        BlockChain current;
         int i = 0;
         while(line[i] != ' ') {
             sender += line[i];
@@ -91,21 +91,22 @@ BlockChain BlockChainLoad(ifstream& file) {
         }
 
         value = std::stoi(valueStr);
-        transaction->sender = sender;
-        transaction->receiver = receiver;
-        transaction->value = value;
-        current->time = timestamp;
-        current->transaction = *transaction;
+        transaction.sender = sender;
+        transaction.receiver = receiver;
+        transaction.value = value;
+        current.time = timestamp;
+        current.transaction = transaction;
 
         if (head == nullptr) {
-            head = current;
+            head = &current;
             temp = head;
         } else {
-            temp->next = current;
+            temp->next = &current;
             temp = temp->next;
         }
         sender = receiver = valueStr = timestamp = "";
     }
+
     return *head;
 }
 
@@ -126,9 +127,9 @@ void BlockChainDumpHashed(const BlockChain& blockChain, ofstream& file) {
     const BlockChain* current = &blockChain;
     while (current != nullptr) {
         if (current->next != nullptr) {
-            file << TransactionHashMessage(blockChain.transaction) << std::endl;
+            file << TransactionHashedMessage(blockChain.transaction) << std::endl;
         } else {
-            file << TransactionHashMessage(blockChain.transaction);
+            file << TransactionHashedMessage(blockChain.transaction);
         }
         current = current->next;
     }

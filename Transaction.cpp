@@ -6,7 +6,7 @@ void TransactionDumpInfo(const Transaction& transaction, ofstream& file) {
     file << "Transaction Value: " << transaction.value << std::endl;
 }
 
-string TransactionHashMessage(const Transaction& transaction) {
+string TransactionHashedMessage(const Transaction& transaction) {
     return hash(transaction.value, transaction.sender, transaction.receiver);
 }
 
@@ -14,5 +14,5 @@ bool TransactionVerifyHashedMessage(
         const Transaction& transaction,
         string hashedMessage
 ) {
-    return hashedMessage == TransactionHashMessage(transaction);
+    return hashedMessage == TransactionHashedMessage(transaction);
 }

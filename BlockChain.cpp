@@ -3,6 +3,7 @@
 #include <iostream>
 using namespace std;
 
+
 int BlockChainGetSize(const BlockChain& blockChain) {
     int ctr = 0;
     const BlockChain* current = &blockChain;
@@ -66,9 +67,8 @@ BlockChain BlockChainLoad(ifstream& file) {
     sender = receiver = valueStr = timestamp = "";
     int value;
     while(getline(file, line)) {
-        Transaction *transaction = new Transaction;
         BlockChain *current = new BlockChain;
-        int i = 0;
+        size_t i = 0;
         while(line[i] != ' ') {
             sender += line[i];
             i++;
@@ -90,15 +90,14 @@ BlockChain BlockChainLoad(ifstream& file) {
         }
 
         value = std::stoi(valueStr);
-        transaction->sender = sender;
-        transaction->receiver = receiver;
-        transaction->value = value;
         current->time = timestamp;
 
-        current->transaction = *transaction;
+        current->transaction = {0, sender, receiver};
+        current->transaction.value = value;
 
         if (head == nullptr) {
             head = current;
+            head->headLocation = head;
             temp = head;
         } else {
             temp->next = current;
@@ -151,23 +150,6 @@ bool BlockChainVerifyFile(const BlockChain& blockChain, std::ifstream& file) {
 }
 
 
-// void BlockChainCompress(BlockChain& blockChain) {
-//     BlockChain* currentCompress = &blockChain;
-//     BlockChain* current = &blockChain;
-//     while(currentCompress != nullptr) {
-//         while (current->next != nullptr 
-//         && current->next->transaction.sender == currentCompress->transaction.sender 
-//         && current->next->transaction.receiver == currentCompress->transaction.receiver) {
-//             cout << current->time << endl;
-//             currentCompress->transaction.value += current->next->transaction.value;
-//             currentCompress->next = current->next;
-//             current = currentCompress->next;
-            
-//         }
-//         currentCompress = currentCompress->next;
-//     }
-// }
-
 void BlockChainCompress(BlockChain& blockChain) {
     BlockChain* temp = &blockChain;
     
@@ -189,4 +171,15 @@ void BlockChainTransform(BlockChain& blockChain, updateFunction function) {
             current->transaction.value = function(current->transaction.value);
             current = current->next;
         }
+}
+
+
+void destroy(BlockChain* blockChain) {
+    BlockChain* current = blockChain->next;
+    while (current) {
+        BlockChain* nextBlock = current->next;
+        delete current;
+        current = nextBlock;
+    }
+    delete blockChain->headLocation;
 }

@@ -21,6 +21,7 @@ typedef unsigned int (*updateFunction)(unsigned int);
 */
 struct BlockChain {
     BlockChain* next;
+    BlockChain* headLocation;
     Transaction transaction;
     string time;
 };
@@ -91,7 +92,6 @@ void BlockChainAppendTransaction(
  *
 */
 BlockChain BlockChainLoad(ifstream& file);
-
 
 
 /**
@@ -169,3 +169,11 @@ void BlockChainCompress(BlockChain& blockChain);
 */
 void BlockChainTransform(BlockChain& blockChain, updateFunction function);
 
+void destroy(BlockChain* blockChain);
+
+#ifndef GLOBALS_H
+#define GLOBALS_H
+
+extern BlockChain* x;
+
+#endif

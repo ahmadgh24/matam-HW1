@@ -20,8 +20,8 @@ typedef unsigned int (*updateFunction)(unsigned int);
  *
 */
 struct BlockChain {
-    BlockChain* next;
-    BlockChain* headLocation;
+    BlockChain* next = nullptr;
+    BlockChain* headLocation = nullptr;
     Transaction transaction;
     string time;
 };

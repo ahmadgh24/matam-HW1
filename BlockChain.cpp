@@ -159,6 +159,7 @@ void BlockChainCompress(BlockChain& blockChain) {
             temp->transaction.receiver == next->transaction.receiver) {  
             temp->transaction.value += next->transaction.value;
             temp->next = next->next;
+            delete next;
         } else {
             temp = next;
         }

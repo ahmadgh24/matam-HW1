@@ -1,4 +1,5 @@
 #include "Transaction.h"
+#include "Utilities.h"
 
 void TransactionDumpInfo(const Transaction& transaction, ofstream& file) {
     file << "Sender Name: " << transaction.sender << std::endl;

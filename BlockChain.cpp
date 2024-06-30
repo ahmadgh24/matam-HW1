@@ -37,13 +37,11 @@ void BlockChainAppendTransaction(
     const string& receiver,
     const string& timestamp
 ) {
-    BlockChain* newBlock = new BlockChain;
-    newBlock->transaction.value = value;
-    newBlock->transaction.sender = sender;
-    newBlock->transaction.receiver = receiver;
-    newBlock->time = timestamp;
-    newBlock->next = &blockChain;
-    blockChain = *newBlock;
+    Transaction t;
+    t.receiver = receiver;
+    t.sender = sender;
+    t.value = value;
+    BlockChainAppendTransaction(blockChain, t, timestamp);
 }
 
 void BlockChainAppendTransaction(
@@ -51,11 +49,13 @@ void BlockChainAppendTransaction(
         const Transaction& transaction,
         const string& timestamp
 ) {
-    BlockChain* newBlock = new BlockChain;
-    newBlock->transaction = transaction;
-    newBlock->time = timestamp;
-    newBlock->next = &blockChain;
-    blockChain = *newBlock;
+    BlockChain* temp = new BlockChain;
+    temp->transaction = blockChain.transaction;
+    temp->time = blockChain.time;
+    temp->next = blockChain.next;
+    blockChain.time = timestamp;
+    blockChain.transaction = transaction;
+    blockChain.next = temp;
 }
 
 
@@ -63,33 +63,11 @@ BlockChain BlockChainLoad(ifstream& file) {
     BlockChain* head = nullptr;
     BlockChain* temp = nullptr;
 
-    std::string line, sender, receiver, valueStr, timestamp;
-    sender = receiver = valueStr = timestamp = "";
-    int value;
-    while(getline(file, line)) {
+    std::string sender, receiver, timestamp;
+    sender = receiver = timestamp = "";
+    unsigned int value;
+    while(file >> sender >> receiver >> value >> timestamp) {
         BlockChain *current = new BlockChain;
-        size_t i = 0;
-        while(line[i] != ' ') {
-            sender += line[i];
-            i++;
-        }
-        i++;
-        while(line[i] != ' ') {
-            receiver += line[i];
-            i++;
-        }
-        i++;
-        while(line[i] != ' ') {
-            valueStr += line[i];
-            i++;
-        }
-        i++;
-        while(i < line.length()) {
-            timestamp += line[i];
-            i++;
-        }
-
-        value = std::stoi(valueStr);
         current->time = timestamp;
 
         current->transaction = {0, sender, receiver};
@@ -103,7 +81,6 @@ BlockChain BlockChainLoad(ifstream& file) {
             temp->next = current;
             temp = temp->next;
         }
-        valueStr = "";
         sender = receiver = timestamp = "";
 
         

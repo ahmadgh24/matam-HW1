@@ -8,7 +8,8 @@
     "ratio": "cpp",
     "tuple": "cpp",
     "fstream": "cpp",
-    "string": "cpp"
+    "string": "cpp",
+    "iostream": "cpp"
   },
   "C_Cpp_Runner.cCompilerPath": "clang",
   "C_Cpp_Runner.cppCompilerPath": "g++",

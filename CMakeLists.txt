@@ -23,3 +23,4 @@ add_executable(
         main.cpp
 )
 
+target_link_libraries(mtm_blockchain)

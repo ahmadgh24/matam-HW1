@@ -3,4 +3,11 @@ project(1)
 
 set(CMAKE_CXX_STANDARD 17)
 
+add_library(
+        BlockChain.h
+        Transaction.h
+        Utilities.h
+)
+
+
 add_executable(1 main.cpp Transaction.cpp Transaction.h Blockchain.h Blockchain.cpp Utilities.h Utilities.cpp)

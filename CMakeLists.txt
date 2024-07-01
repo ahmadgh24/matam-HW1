@@ -17,6 +17,11 @@ add_library(
         main.cpp
 )
 
+target_include_directories(
+        mtm_blockchain_lib
+        PUBLIC
+        .
+)
 
 
 add_executable(

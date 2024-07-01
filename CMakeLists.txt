@@ -17,5 +17,3 @@ add_executable(
         main.cpp
 )
 
-install_project_binaries(mtm_blockchain)
-

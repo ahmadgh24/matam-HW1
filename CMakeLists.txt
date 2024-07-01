@@ -10,4 +10,4 @@ add_library(
 )
 
 
-add_executable(1 main.cpp Transaction.cpp Transaction.h Blockchain.h Blockchain.cpp Utilities.h Utilities.cpp)
+add_executable(1 main.cpp Transaction.cpp Blockchain.cpp Utilities.cpp)

@@ -123,7 +123,10 @@ bool BlockChainVerifyFile(const BlockChain& blockChain, std::ifstream& file) {
         }
         current = current->next;
     }
-    return true;
+    if (file.eof() && current == nullptr) {
+        return true;
+    }
+    return false;
 }
 
 

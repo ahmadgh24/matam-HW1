@@ -17,7 +17,6 @@ add_library(
 
 
 add_executable(
-        1
         mtm_blockchain
         main.cpp
 )

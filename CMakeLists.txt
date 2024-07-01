@@ -7,7 +7,15 @@ add_library(
         BlockChain.h
         Transaction.h
         Utilities.h
+        Transaction.cpp Blockchain.cpp Utilities.cpp
 )
 
 
-add_executable(1 main.cpp Transaction.cpp Blockchain.cpp Utilities.cpp)
+
+add_executable(
+        mtm_blockchain
+        main.cpp
+)
+
+install_project_binaries(mtm_blockchain)
+

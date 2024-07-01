@@ -11,7 +11,8 @@ add_library(
         BlockChain.h
         Transaction.h
         Utilities.h
-        Transaction.cpp Blockchain.cpp Utilities.cpp
+        Transaction.cpp
+        Utilities.cpp
 )
 
 

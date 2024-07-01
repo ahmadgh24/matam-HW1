@@ -14,13 +14,13 @@ add_library(
         Transaction.cpp
         BlockChain.cpp 
         Utilities.cpp
+        main.cpp
 )
 
 
 
 add_executable(
         mtm_blockchain
-        main.cpp
 )
 
 target_link_libraries(mtm_blockchain)

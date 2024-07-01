@@ -18,7 +18,6 @@ add_library(
 )
 
 target_include_directories(
-        mtm_blockchain_lib
         PUBLIC
         .
 )

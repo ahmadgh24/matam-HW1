@@ -3,7 +3,7 @@ project(HW1)
 
 set(CMAKE_CXX_STANDARD 17)
 
-include(cmake/utils)
+include(cmake/utils.cmake)
 
 add_library(mtm_blockchain_lib
         Utilities.cpp

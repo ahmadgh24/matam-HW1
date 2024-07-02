@@ -1,0 +1,392 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+
+
+    
+        <button type="button" class="collapsible" style="color:green">Verify Example Test</button>
+<div class="content">
+  
+  <p><br/>Verify Example Test - Passed!<br/></p>
+</div>
+
+        <button type="button" class="collapsible" style="color:red">Verify Example Test - Valgrind</button>
+<div class="content">
+  <p>Test Command:<br/>valgrind --leak-check=full /Users/ahmad/Developer/Technion/matam/1/mtm_blockchain verify verify/example.source verify/example.target &gt; verify/example.out</p>
+  <p><br/>Verify Example Test has leaks!<br/> Failed due to an error raised by valgrind!<br/>Error:<br/>/bin/sh: valgrind: command not found<br/><br/></p>
+</div>
+
+        <button type="button" class="collapsible" style="color:green">Verify - source has more transactions than target</button>
+<div class="content">
+  
+  <p><br/>Verify - source has more transactions than target - Passed!<br/></p>
+</div>
+
+        <button type="button" class="collapsible" style="color:red">Verify - source has more transactions than target - Valgrind</button>
+<div class="content">
+  <p>Test Command:<br/>valgrind --leak-check=full /Users/ahmad/Developer/Technion/matam/1/mtm_blockchain verify verify/longerSource.source verify/longerSource.target &gt; verify/longerSource.out</p>
+  <p><br/>Verify - source has more transactions than target has leaks!<br/> Failed due to an error raised by valgrind!<br/>Error:<br/>/bin/sh: valgrind: command not found<br/><br/></p>
+</div>
+
+        <button type="button" class="collapsible" style="color:green">Verify - target has more trnasactions than source</button>
+<div class="content">
+  
+  <p><br/>Verify - target has more trnasactions than source - Passed!<br/></p>
+</div>
+
+        <button type="button" class="collapsible" style="color:red">Verify - target has more trnasactions than source - Valgrind</button>
+<div class="content">
+  <p>Test Command:<br/>valgrind --leak-check=full /Users/ahmad/Developer/Technion/matam/1/mtm_blockchain verify verify/shorterSource.source verify/shorterSource.target &gt; verify/shorterSource.out</p>
+  <p><br/>Verify - target has more trnasactions than source has leaks!<br/> Failed due to an error raised by valgrind!<br/>Error:<br/>/bin/sh: valgrind: command not found<br/><br/></p>
+</div>
+
+        <button type="button" class="collapsible" style="color:red">Verify Empty Source Test</button>
+<div class="content">
+  <p>Test Command:<br/>/Users/ahmad/Developer/Technion/matam/1/mtm_blockchain verify verify/empty.source verify/empty.target &gt; verify/empty.out</p>
+  <p><br/>Verify Empty Source Test - Failed!<br/>Expected Output:<br/><br/>Verification passed<br/><br/>Actual Output:<br/><br/><br/></p>
+</div>
+
+        <button type="button" class="collapsible" style="color:red">Verify Empty Source Test - Valgrind</button>
+<div class="content">
+  <p>Test Command:<br/>valgrind --leak-check=full /Users/ahmad/Developer/Technion/matam/1/mtm_blockchain verify verify/empty.source verify/empty.target &gt; verify/empty.out</p>
+  <p><br/>Verify Empty Source Test has leaks!<br/> Failed due to an error raised by valgrind!<br/>Error:<br/>/bin/sh: valgrind: command not found<br/><br/></p>
+</div>
+
+        <button type="button" class="collapsible" style="color:green">Verify Invalid Hash Test</button>
+<div class="content">
+  
+  <p><br/>Verify Invalid Hash Test - Passed!<br/></p>
+</div>
+
+        <button type="button" class="collapsible" style="color:red">Verify Invalid Hash Test - Valgrind</button>
+<div class="content">
+  <p>Test Command:<br/>valgrind --leak-check=full /Users/ahmad/Developer/Technion/matam/1/mtm_blockchain verify verify/invalidHash.source verify/invalidHash.target &gt; verify/invalidHash.out</p>
+  <p><br/>Verify Invalid Hash Test has leaks!<br/> Failed due to an error raised by valgrind!<br/>Error:<br/>/bin/sh: valgrind: command not found<br/><br/></p>
+</div>
+
+        <button type="button" class="collapsible" style="color:green">Hash Example Test</button>
+<div class="content">
+  
+  <p><br/>Hash Example Test - Passed!<br/></p>
+</div>
+
+        <button type="button" class="collapsible" style="color:red">Hash Example Test - Valgrind</button>
+<div class="content">
+  <p>Test Command:<br/>valgrind --leak-check=full /Users/ahmad/Developer/Technion/matam/1/mtm_blockchain hash hash/example.source hash/example.target.out</p>
+  <p><br/>Hash Example Test has leaks!<br/> Failed due to an error raised by valgrind!<br/>Error:<br/>/bin/sh: valgrind: command not found<br/><br/></p>
+</div>
+
+        <button type="button" class="collapsible" style="color:green">Hash - uncompressed BlockChain</button>
+<div class="content">
+  
+  <p><br/>Hash - uncompressed BlockChain - Passed!<br/></p>
+</div>
+
+        <button type="button" class="collapsible" style="color:red">Hash - uncompressed BlockChain - Valgrind</button>
+<div class="content">
+  <p>Test Command:<br/>valgrind --leak-check=full /Users/ahmad/Developer/Technion/matam/1/mtm_blockchain hash hash/uncompressed.source hash/uncompressed.target.out</p>
+  <p><br/>Hash - uncompressed BlockChain has leaks!<br/> Failed due to an error raised by valgrind!<br/>Error:<br/>/bin/sh: valgrind: command not found<br/><br/></p>
+</div>
+
+        <button type="button" class="collapsible" style="color:green">Hash - long hash key</button>
+<div class="content">
+  
+  <p><br/>Hash - long hash key - Passed!<br/></p>
+</div>
+
+        <button type="button" class="collapsible" style="color:red">Hash - long hash key - Valgrind</button>
+<div class="content">
+  <p>Test Command:<br/>valgrind --leak-check=full /Users/ahmad/Developer/Technion/matam/1/mtm_blockchain hash hash/longHashKey.source hash/longHashKey.target.out</p>
+  <p><br/>Hash - long hash key has leaks!<br/> Failed due to an error raised by valgrind!<br/>Error:<br/>/bin/sh: valgrind: command not found<br/><br/></p>
+</div>
+
+        <button type="button" class="collapsible" style="color:green">Hash Single Transaction Test</button>
+<div class="content">
+  
+  <p><br/>Hash Single Transaction Test - Passed!<br/></p>
+</div>
+
+        <button type="button" class="collapsible" style="color:red">Hash Single Transaction Test - Valgrind</button>
+<div class="content">
+  <p>Test Command:<br/>valgrind --leak-check=full /Users/ahmad/Developer/Technion/matam/1/mtm_blockchain hash hash/singleTransaction.source hash/singleTransaction.target.out</p>
+  <p><br/>Hash Single Transaction Test has leaks!<br/> Failed due to an error raised by valgrind!<br/>Error:<br/>/bin/sh: valgrind: command not found<br/><br/></p>
+</div>
+
+        <button type="button" class="collapsible" style="color:green">Hash Special Characters Test</button>
+<div class="content">
+  
+  <p><br/>Hash Special Characters Test - Passed!<br/></p>
+</div>
+
+        <button type="button" class="collapsible" style="color:red">Hash Special Characters Test - Valgrind</button>
+<div class="content">
+  <p>Test Command:<br/>valgrind --leak-check=full /Users/ahmad/Developer/Technion/matam/1/mtm_blockchain hash hash/specialChars.source hash/specialChars.target.out</p>
+  <p><br/>Hash Special Characters Test has leaks!<br/> Failed due to an error raised by valgrind!<br/>Error:<br/>/bin/sh: valgrind: command not found<br/><br/></p>
+</div>
+
+        <button type="button" class="collapsible" style="color:green">Compress Example Test</button>
+<div class="content">
+  
+  <p><br/>Compress Example Test - Passed!<br/></p>
+</div>
+
+        <button type="button" class="collapsible" style="color:red">Compress Example Test - Valgrind</button>
+<div class="content">
+  <p>Test Command:<br/>valgrind --leak-check=full /Users/ahmad/Developer/Technion/matam/1/mtm_blockchain compress compress/example.source compress/example.target.out</p>
+  <p><br/>Compress Example Test has leaks!<br/> Failed due to an error raised by valgrind!<br/>Error:<br/>/bin/sh: valgrind: command not found<br/><br/></p>
+</div>
+
+        <button type="button" class="collapsible" style="color:green">Compress short interval</button>
+<div class="content">
+  
+  <p><br/>Compress short interval - Passed!<br/></p>
+</div>
+
+        <button type="button" class="collapsible" style="color:red">Compress short interval - Valgrind</button>
+<div class="content">
+  <p>Test Command:<br/>valgrind --leak-check=full /Users/ahmad/Developer/Technion/matam/1/mtm_blockchain compress compress/shortInterval.source compress/shortInterval.target.out</p>
+  <p><br/>Compress short interval has leaks!<br/> Failed due to an error raised by valgrind!<br/>Error:<br/>/bin/sh: valgrind: command not found<br/><br/></p>
+</div>
+
+        <button type="button" class="collapsible" style="color:green">Compress - no transactions to compress</button>
+<div class="content">
+  
+  <p><br/>Compress - no transactions to compress - Passed!<br/></p>
+</div>
+
+        <button type="button" class="collapsible" style="color:red">Compress - no transactions to compress - Valgrind</button>
+<div class="content">
+  <p>Test Command:<br/>valgrind --leak-check=full /Users/ahmad/Developer/Technion/matam/1/mtm_blockchain compress compress/nothingToCompress.source compress/nothingToCompress.target.out</p>
+  <p><br/>Compress - no transactions to compress has leaks!<br/> Failed due to an error raised by valgrind!<br/>Error:<br/>/bin/sh: valgrind: command not found<br/><br/></p>
+</div>
+
+        <button type="button" class="collapsible" style="color:green">Compress - specific numbers</button>
+<div class="content">
+  
+  <p><br/>Compress - specific numbers - Passed!<br/></p>
+</div>
+
+        <button type="button" class="collapsible" style="color:red">Compress - specific numbers - Valgrind</button>
+<div class="content">
+  <p>Test Command:<br/>valgrind --leak-check=full /Users/ahmad/Developer/Technion/matam/1/mtm_blockchain compress compress/specificNumbers.source compress/specificNumbers.target.out</p>
+  <p><br/>Compress - specific numbers has leaks!<br/> Failed due to an error raised by valgrind!<br/>Error:<br/>/bin/sh: valgrind: command not found<br/><br/></p>
+</div>
+
+        <button type="button" class="collapsible" style="color:green">Compress separate chunks test</button>
+<div class="content">
+  
+  <p><br/>Compress separate chunks test - Passed!<br/></p>
+</div>
+
+        <button type="button" class="collapsible" style="color:red">Compress separate chunks test - Valgrind</button>
+<div class="content">
+  <p>Test Command:<br/>valgrind --leak-check=full /Users/ahmad/Developer/Technion/matam/1/mtm_blockchain compress compress/compressChunks.source compress/compressChunks.target.out</p>
+  <p><br/>Compress separate chunks test has leaks!<br/> Failed due to an error raised by valgrind!<br/>Error:<br/>/bin/sh: valgrind: command not found<br/><br/></p>
+</div>
+
+        <button type="button" class="collapsible" style="color:red">Compress Empty Source Test</button>
+<div class="content">
+  <p>Test Command:<br/>/Users/ahmad/Developer/Technion/matam/1/mtm_blockchain compress compress/empty.source compress/empty.target.out</p>
+  <p><br/>Compress Empty Source Test - Failed!<br/>Expected Output:<br/><br/>BlockChain Info:<br/><br/>Actual Output:<br/><br/><br/></p>
+</div>
+
+        <button type="button" class="collapsible" style="color:red">Compress Empty Source Test - Valgrind</button>
+<div class="content">
+  <p>Test Command:<br/>valgrind --leak-check=full /Users/ahmad/Developer/Technion/matam/1/mtm_blockchain compress compress/empty.source compress/empty.target.out</p>
+  <p><br/>Compress Empty Source Test has leaks!<br/> Failed due to an error raised by valgrind!<br/>Error:<br/>/bin/sh: valgrind: command not found<br/><br/></p>
+</div>
+
+        <button type="button" class="collapsible" style="color:green">Compress - invalid date</button>
+<div class="content">
+  
+  <p><br/>Compress - invalid date - Passed!<br/></p>
+</div>
+
+        <button type="button" class="collapsible" style="color:red">Compress - invalid date - Valgrind</button>
+<div class="content">
+  <p>Test Command:<br/>valgrind --leak-check=full /Users/ahmad/Developer/Technion/matam/1/mtm_blockchain compress compress/invalidDate.source compress/invalidDate.target.out</p>
+  <p><br/>Compress - invalid date has leaks!<br/> Failed due to an error raised by valgrind!<br/>Error:<br/>/bin/sh: valgrind: command not found<br/><br/></p>
+</div>
+
+        <button type="button" class="collapsible" style="color:green">Format Example Test</button>
+<div class="content">
+  
+  <p><br/>Format Example Test - Passed!<br/></p>
+</div>
+
+        <button type="button" class="collapsible" style="color:red">Format Example Test - Valgrind</button>
+<div class="content">
+  <p>Test Command:<br/>valgrind --leak-check=full /Users/ahmad/Developer/Technion/matam/1/mtm_blockchain format format/example.source format/example.target.out</p>
+  <p><br/>Format Example Test has leaks!<br/> Failed due to an error raised by valgrind!<br/>Error:<br/>/bin/sh: valgrind: command not found<br/><br/></p>
+</div>
+
+        <button type="button" class="collapsible" style="color:green">Format - Special Chars</button>
+<div class="content">
+  
+  <p><br/>Format - Special Chars - Passed!<br/></p>
+</div>
+
+        <button type="button" class="collapsible" style="color:red">Format - Special Chars - Valgrind</button>
+<div class="content">
+  <p>Test Command:<br/>valgrind --leak-check=full /Users/ahmad/Developer/Technion/matam/1/mtm_blockchain format format/specialChars.source format/specialChars.target.out</p>
+  <p><br/>Format - Special Chars has leaks!<br/> Failed due to an error raised by valgrind!<br/>Error:<br/>/bin/sh: valgrind: command not found<br/><br/></p>
+</div>
+
+        <button type="button" class="collapsible" style="color:red">Format Empty Source Test</button>
+<div class="content">
+  <p>Test Command:<br/>/Users/ahmad/Developer/Technion/matam/1/mtm_blockchain format format/empty.source format/empty.target.out</p>
+  <p><br/>Format Empty Source Test - Failed!<br/>Expected Output:<br/><br/>BlockChain Info:<br/><br/>Actual Output:<br/><br/><br/></p>
+</div>
+
+        <button type="button" class="collapsible" style="color:red">Format Empty Source Test - Valgrind</button>
+<div class="content">
+  <p>Test Command:<br/>valgrind --leak-check=full /Users/ahmad/Developer/Technion/matam/1/mtm_blockchain format format/empty.source format/empty.target.out</p>
+  <p><br/>Format Empty Source Test has leaks!<br/> Failed due to an error raised by valgrind!<br/>Error:<br/>/bin/sh: valgrind: command not found<br/><br/></p>
+</div>
+
+        <button type="button" class="collapsible" style="color:green">Misc - no params</button>
+<div class="content">
+  
+  <p><br/>Misc - no params - Passed!<br/></p>
+</div>
+
+        <button type="button" class="collapsible" style="color:red">Misc - no params - Valgrind</button>
+<div class="content">
+  <p>Test Command:<br/>valgrind --leak-check=full /Users/ahmad/Developer/Technion/matam/1/mtm_blockchain &gt; misc/noParams.out</p>
+  <p><br/>Misc - no params has leaks!<br/> Failed due to an error raised by valgrind!<br/>Error:<br/>/bin/sh: valgrind: command not found<br/><br/></p>
+</div>
+
+        <button type="button" class="collapsible" style="color:green">Misc - too few params</button>
+<div class="content">
+  
+  <p><br/>Misc - too few params - Passed!<br/></p>
+</div>
+
+        <button type="button" class="collapsible" style="color:red">Misc - too few params - Valgrind</button>
+<div class="content">
+  <p>Test Command:<br/>valgrind --leak-check=full /Users/ahmad/Developer/Technion/matam/1/mtm_blockchain verify 9   &gt; misc/tooFewParams.out</p>
+  <p><br/>Misc - too few params has leaks!<br/> Failed due to an error raised by valgrind!<br/>Error:<br/>/bin/sh: valgrind: command not found<br/><br/></p>
+</div>
+
+        <button type="button" class="collapsible" style="color:green">Misc - too many params</button>
+<div class="content">
+  
+  <p><br/>Misc - too many params - Passed!<br/></p>
+</div>
+
+        <button type="button" class="collapsible" style="color:red">Misc - too many params - Valgrind</button>
+<div class="content">
+  <p>Test Command:<br/>valgrind --leak-check=full /Users/ahmad/Developer/Technion/matam/1/mtm_blockchain verify 9 misc/tooFewParams.source misc/tooFewParams.target &gt; misc/tooManyParams.out</p>
+  <p><br/>Misc - too many params has leaks!<br/> Failed due to an error raised by valgrind!<br/>Error:<br/>/bin/sh: valgrind: command not found<br/><br/></p>
+</div>
+
+        <button type="button" class="collapsible" style="color:green">Misc - invalid operation - empty params</button>
+<div class="content">
+  
+  <p><br/>Misc - invalid operation - empty params - Passed!<br/></p>
+</div>
+
+        <button type="button" class="collapsible" style="color:red">Misc - invalid operation - empty params - Valgrind</button>
+<div class="content">
+  <p>Test Command:<br/>valgrind --leak-check=full /Users/ahmad/Developer/Technion/matam/1/mtm_blockchain append   &gt; misc/invalidOperation.out</p>
+  <p><br/>Misc - invalid operation - empty params has leaks!<br/> Failed due to an error raised by valgrind!<br/>Error:<br/>/bin/sh: valgrind: command not found<br/><br/></p>
+</div>
+
+        <button type="button" class="collapsible" style="color:red">Misc - invalid operation - valid params</button>
+<div class="content">
+  <p>Test Command:<br/>/Users/ahmad/Developer/Technion/matam/1/mtm_blockchain append misc/invalidOperation.source misc/invalidOperation.target &gt; misc/invalidOperation.out</p>
+  <p><br/>Misc - invalid operation - valid params - Failed!<br/>Expected Output:<br/><br/>Usage: ./mtm_blockchain &lt;op&gt; &lt;source&gt; &lt;target&gt; <br/><br/>Actual Output:<br/><br/><br/></p>
+</div>
+
+        <button type="button" class="collapsible" style="color:red">Misc - invalid operation - valid params - Valgrind</button>
+<div class="content">
+  <p>Test Command:<br/>valgrind --leak-check=full /Users/ahmad/Developer/Technion/matam/1/mtm_blockchain append misc/invalidOperation.source misc/invalidOperation.target &gt; misc/invalidOperation.out</p>
+  <p><br/>Misc - invalid operation - valid params has leaks!<br/> Failed due to an error raised by valgrind!<br/>Error:<br/>/bin/sh: valgrind: command not found<br/><br/></p>
+</div>
+
+</body>
+</html>
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>
+<style>
+.collapsible {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .collapsible:hover {
+  background-color: #ccc;
+}
+
+/* Style the collapsible content. Note: hidden by default */
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
+.collapsible:after {
+  content: '\02795'; /* Unicode character for "plus" sign (+) */
+  font-size: 13px;
+  color: white;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2796"; /* Unicode character for "minus" sign (-) */
+}
+</style>
+<style>
+.content {
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+</style>
+
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    }
+  });
+}
+</script>
+    

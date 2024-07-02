@@ -170,10 +170,3 @@ void BlockChainCompress(BlockChain& blockChain);
 void BlockChainTransform(BlockChain& blockChain, updateFunction function);
 
 void destroy(BlockChain* blockChain);
-
-#ifndef GLOBALS_H
-#define GLOBALS_H
-
-extern BlockChain* x;
-
-#endif

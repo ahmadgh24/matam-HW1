@@ -11,11 +11,7 @@ int main(int argc, char *argv[]) {
         return 0;
     }
     ifstream source(argv[2]);
-    if(source.peek() == ifstream::traits_type::eof()) {
-        ofstream target(argv[3]);
-        target.close();
-        return 0;
-    }
+
     BlockChain b;
     b = BlockChainLoad(source);
     if (strcmp(argv[1], "verify") == 0) {

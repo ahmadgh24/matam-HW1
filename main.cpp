@@ -7,7 +7,7 @@ using namespace std;
 
 int main(int argc, char *argv[]) {
     if (argc != 4) {
-         cout << getErrorMessage() << endl;
+        cout << getErrorMessage() << endl;
         return 0;
     }
     ifstream source(argv[2]);
@@ -27,6 +27,8 @@ int main(int argc, char *argv[]) {
         } else if (strcmp(argv[1], "compress") == 0) {
             BlockChainCompress(b);
             BlockChainDump(b, target);
+        } else {
+            cout << getErrorMessage() << endl;
         }
     }
     destroy(&b);
